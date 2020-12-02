@@ -1,1 +1,1 @@
-web: gunicorn faceattend.app:app
+web: gunicorn wsgi:app
