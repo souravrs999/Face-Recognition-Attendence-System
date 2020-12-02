@@ -8,7 +8,6 @@ from flask_login import LoginManager
 from .utils.utils import *
 
 """ Declare some variable """
-database_dir = 'database/'
 database_file = "db.sqlite3"
 
 """ Initialize sqlalchemy """
@@ -23,7 +22,7 @@ def create_app():
 
     """ Set sqlalchemy configurations """
     app.config["SECRET_KEY"] = "justatempsecretkey"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + database_dir + database_file
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + database_file
 
     """ Sqlalchemy just wouldn't shut up about this """
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -54,8 +53,7 @@ def create_app():
     app.register_blueprint(main)
 
     """ Create the database """
-    if not os.path.exists(os.path.join(database_dir, database_file)):
-        mk_dir(database_dir)
+    if not os.path.exists(database_file):
         with app.app_context():
             db.create_all()
 
