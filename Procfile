@@ -1,1 +1,1 @@
-web: gunicorn faceattend:app
+web: gunicorn faceattend.app:app
