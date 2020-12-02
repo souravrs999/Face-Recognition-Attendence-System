@@ -70,7 +70,7 @@ def signup_post():
     name = request.form.get("name")
     email = request.form.get("email")
     password = request.form.get("password")
-    conf_password = requsest.form.get("conf_password")
+    conf_password = request.form.get("conf_password")
 
     """ Check to see if both the passwords are correct """
     if password != conf_password:

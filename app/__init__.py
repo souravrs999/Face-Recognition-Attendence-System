@@ -1,9 +1,15 @@
 #! /env/usr/bin python
 
 """ Necessary Imports """
+import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from Flask_login import LoginManager
+from flask_login import LoginManager
+from .utils.utils import *
+
+""" Declare some variable """
+database_dir = "database/"
+database_file = "db.sqlite3"
 
 """ Initialize sqlalchemy """
 db = SQLAlchemy()
@@ -17,12 +23,15 @@ def create_app():
 
     """ Set sqlalchemy configurations """
     app.config["SECRET_KEY"] = "justatempsecretkey"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite3"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + database_dir + database_file
+
+    """ Sqlalchemy just wouldn't shut up about this """
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
 
     """ Initialize flak login """
-    login_manager = Loginmanager()
+    login_manager = LoginManager()
     login_manager.login_view = "auth.login"
     login_manager.init_app(app)
 
@@ -32,9 +41,9 @@ def create_app():
     """ Returns the current user_id """
 
     @login_manager.user_loader
-    def load_user(reg_id):
+    def load_user(user_id):
 
-        return User.query.get(str(reg_id))
+        return User.query.get(int(user_id))
 
     """ Import our blueprints """
     from .auth import auth
@@ -43,5 +52,11 @@ def create_app():
     """ Register these blue prints """
     app.register_blueprint(auth)
     app.register_blueprint(main)
+
+    """ Create the database """
+    if not os.path.exists(os.path.join(database_dir, database_file)):
+        mk_dir("database")
+        with app.app_context():
+            db.create_all()
 
     return app
