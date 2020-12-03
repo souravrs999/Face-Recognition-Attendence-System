@@ -1,6 +1,7 @@
 #! /env/usr/bin python
 
 """ Necessary Imports """
+import sys
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, logout_user, login_required
@@ -89,13 +90,35 @@ def signup_post():
         flash("User with this reg_id already exists !")
         return redirect(url_for("auth.signup"))
 
-    """ Add this user to the user table """
-    new_user = User(
-        reg_id=reg_id,
-        name=name,
-        email=email,
-        password=generate_password_hash(password, method="sha256"),
-    )
+    """ During the first run of the app check for users with admin roles
+    if no users are persent then the first user that signup after
+    the app launch will be the admin user """
+
+    admin_user = User.query.filter_by(role=int(2)).first()
+    print(admin_user, file=sys.stderr)
+
+    ''' At first run since the database does not contain any
+    user with admin rights this will return None '''
+
+    if admin_user == None:
+
+        ''' Add this user to the database with admin role '''
+        new_user = User(
+            reg_id=reg_id,
+            name=name,
+            email=email,
+            password=generate_password_hash(password, method="sha256"),
+            role=int(2),
+        )
+
+    else:
+        """ Add this user to the database with user role """
+        new_user = User(
+            reg_id=reg_id,
+            name=name,
+            email=email,
+            password=generate_password_hash(password, method="sha256"),
+        )
 
     """ Add this user to table and commit changes then redirect to login"""
     db.session.add(new_user)
