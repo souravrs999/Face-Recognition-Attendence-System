@@ -7,25 +7,27 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from .utils.utils import *
 
-""" Declare some variable """
-database_file = "db.sqlite3"
-
 """ Initialize sqlalchemy """
 db = SQLAlchemy()
+
+""" Create the database """
+
+
+def configure_database(app):
+    @app.before_first_request
+    def initialize_database():
+
+        db.create_all()
+
 
 """ Create app function """
 
 
-def create_app():
+def create_app(config):
 
     app = Flask(__name__)
 
-    """ Set sqlalchemy configurations """
-    app.config["SECRET_KEY"] = "justatempsecretkey"
-    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + database_file
-
-    """ Sqlalchemy just wouldn't shut up about this """
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    app.config.from_object(config)
 
     db.init_app(app)
 
@@ -47,14 +49,13 @@ def create_app():
     """ Import our blueprints """
     from .auth import auth
     from .main import main
+    from .error import error
 
     """ Register these blue prints """
     app.register_blueprint(auth)
     app.register_blueprint(main)
+    app.register_blueprint(error)
 
-    """ Create the database """
-    if not os.path.exists(database_file):
-        with app.app_context():
-            db.create_all()
+    configure_database(app)
 
     return app
