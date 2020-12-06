@@ -7,7 +7,7 @@ A python flask based project to make attendence logging an easy task. Powered by
 </p>
 </div>
 
-[https://img.shields.io/github/issues/souravrs999/Face-Recognition-Attendence-System?color=%23f50057&label=PYTHON&style=for-the-badge](#)
+[!https://img.shields.io/github/issues/souravrs999/Face-Recognition-Attendence-System?color=%23f50057&label=PYTHON&style=for-the-badge](#)
 #### !!! Not Finished Yet !!!
 
 ##### Current status
