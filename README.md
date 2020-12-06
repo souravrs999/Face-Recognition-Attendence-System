@@ -6,8 +6,7 @@
 A python flask based project to make attendence logging an easy task. Powered by OpenCV and python in the frontend and Bulma a cool opensource CSS framework based on Flexbox.
 </p>
 </div>
-
-[!https://img.shields.io/github/issues/souravrs999/Face-Recognition-Attendence-System?color=%23f50057&label=PYTHON&style=for-the-badge](#)
+[![PYTHON](https://img.shields.io/github/issues/souravrs999/Face-Recognition-Attendence-System)](#)
 #### !!! Not Finished Yet !!!
 
 ##### Current status
