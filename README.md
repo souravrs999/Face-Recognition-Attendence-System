@@ -7,8 +7,9 @@
 
 ##### Development
 <div align="center">
+<p style="color: #323232"> Here is the link to the app hosted on Heroku.</p>
 <a href="https://faceregister.herokuapp.com/" target="_blank">
-<img width=50% src="media/heroku-logo.png">
+<img width=30% src="media/heroku-logo.png">
 </a>
-<p>Note: The app might not be up at all time since it is still on development and might even be broken ! </p>
+<p style="color: #323232">Note: The app might not be up at all time since it is still on development and might even be broken ! </p>
 </div>
