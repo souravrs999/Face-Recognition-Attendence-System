@@ -1,4 +1,5 @@
- ### Face Recognition Attendence System
+### Face Recognition Attendence System
+
 <div align="center">
 <img  src="media/autolog-logo.png">
 
@@ -7,31 +8,33 @@ A python flask based project to make attendence logging an easy task. Powered by
 </p>
 </div>
 
-<a>
-<img src="https://img.shields.io/static/v1?label=PYTHON&message=3.8&color=#f50057&?style=for-the-badge">
+<p align="center">
+<a href="#">
+<img src="https://img.shields.io/badge/PYTHON-3.8-f50057.svg?style=for-the-badge" alt="made with python">">
 </a>
-<a>
-<img src="https://img.shields.io/static/v1?label=FLASK&message=1.1.2&color=#f50057&?style=for-the-badge">
+<a href="#">
+<img src="https://img.shields.io/badge/PYTHON%FLASK-1.1.2-f50057.svg?style=for-the-badge">
 </a>
-<a>
-<img src="https://img.shields.io/static/v1?label=FLASK-LOGIN&message=1.1.2&color=#f50057&?style=for-the-badge">
+<a href="#">
+<img src="https://img.shields.io/badge/BULMA-v0.9.1-f50057.svg?style=for-the-badge">
 </a>
+</p>
 
 #### !!! Not Finished Yet !!!
 
 ##### Current status
+
 <p style="color: #323232"> Index </p>
 <img src="/media/index.png" style="float: center; margin-right: 10px;" width="1000"/>
 
-
 <p style="color: #323232"> Login </p>
 <img src="/media/login.png" style="float: center; margin-right: 10px;" width="1000"/>
-
 
 <p style="color: #323232"> Sign Up </p>
 <img src="/media/signup.png" style="float: center; margin-right: 10px;" width="1000"/>
 
 ##### Development
+
 <div align="center">
 <p style="color: #323232"> Here is the link to the app hosted on Heroku.</p>
 <a href="https://faceregister.herokuapp.com/" target="_blank">
