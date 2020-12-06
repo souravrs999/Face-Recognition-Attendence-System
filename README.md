@@ -7,10 +7,7 @@ A python flask based project to make attendence logging an easy task. Powered by
 </p>
 </div>
 
-[![Visits Badge](https://badges.pufler.dev/visits/souravrs999/Face-Recognition-Attendence-System)]
-[![Updated Badge](https://badges.pufler.dev/updated/puf17640/git-badges)](https://badges.pufler.dev)
-[![Created Badge](https://badges.pufler.dev/created/puf17640/git-badges)](https://badges.pufler.dev)
-
+[https://img.shields.io/github/issues/souravrs999/Face-Recognition-Attendence-System?color=%23f50057&label=PYTHON&style=for-the-badge](#)
 #### !!! Not Finished Yet !!!
 
 ##### Current status
