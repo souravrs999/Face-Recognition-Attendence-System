@@ -1,5 +1,14 @@
  ### Face Recognition Attendence System
+<div align="center">
+<img  src="media/autolog-logo.png">
 
+<p style="color: #323232">
+A python flask based project to make attendence logging an easy task. Powered by OpenCV and python in the frontend and Bulma a cool opensource CSS framework based on Flexbox.
+</p>
+[![Visits Badge](https://badges.pufler.dev/visits/souravrs999/Face-Recognition-Attendence-System)]
+[![Updated Badge](https://badges.pufler.dev/updated/souravrs999/Face-Recognition-Attendence-System)]
+[![Created Badge](https://badges.pufler.dev/created/souravrs999/Face-Recognition-Attendence-System)]
+</div>
 #### !!! Not Finished Yet !!!
 
 ##### Current status
