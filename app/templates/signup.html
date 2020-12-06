@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block content %}
 <div class="column is-4 is-offset-4">
-  <h3 class="title">Sign Up</h3>
-  <div class="box">
+  <div class="box signup-box">
+    <h1 class="title is-size-1 signup-title">SIGN UP</h1>
+  <span class="signup-breaker"> </span>
+  <span class="signup-ul">SIGN UP</span>
     {% with messages = get_flashed_messages() %} {% if messages %}
     <div class="notification is-danger">
       {{ messages[0] }} Go to
@@ -63,10 +65,13 @@
         </div>
       </div>
 
-      <button class="button is-block is-info is-normal is-rounded is-fullwidth" type="submit">
+      <button class="button is-block is-info is-normal is-rounded is-fullwidth signup-button" type="submit">
         Sign Up
       </button>
     </form>
+    <p class="login-route has-text-grey">
+      Already have an account <a href="{{url_for('auth.login')}}" class="login-link">Login</a>
+    </p>
   </div>
 </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 body {
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 .navbar-item img {
   max-height: 80px;

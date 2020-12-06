@@ -22,37 +22,74 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap"
     />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="{{url_for('static', filename='js/navbar.js')}}"></script>>
+    <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
 
   <body>
-    <section class="hero is-primary is-fullheight">
+    <section class="hero is-fullheight">
       <div class="hero-head">
         <nav class="navbar">
           <div class="container">
-            <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-brand">
+              <a href="#" class="navbar-item">
+                <img
+                  src="{{url_for('static', filename='images/logo.png')}}"
+                  alt="Autolog-logo"
+                />
+              </a>
+              <a href="https://bulma.io" class="navbar-item">
+                <img
+                  src="{{url_for('static', filename='images/bulma-logo-pink.png')}}"
+                  alt=""
+                  width="150"
+                />
+              </a>
+            </div>
+            <div class="navbar-menu is-not-active">
               <div class="navbar-end">
-                <a href="{{ url_for('main.index') }}" class="navbar-item">
+                <a
+                  href="{{ url_for('main.index') }}"
+                  class="a-menu is-size-6 navbar-item"
+                >
                   Home
                 </a>
                 {% if current_user.is_authenticated %}
-                <a href="{{ url_for('main.profile') }}" class="navbar-item">
-                  Profile
+                <a
+                  href="{{ url_for('main.profile') }}"
+                  class="a-menu is-size-6 navbar-item"
+                >
+                  Home
                 </a>
                 {% endif %} {% if not current_user.is_authenticated %}
-                <a href="{{ url_for('auth.login') }}" class="navbar-item">
-                  Login
-                </a>
-                <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                <a
+                  href="{{ url_for('auth.login') }}"
+                  class="a-menu is-size-6 navbar-item"
+                >
+                  Login</a
+                >
+                <a
+                  href="{{ url_for('auth.signup') }}"
+                  class="a-menu is-size-6 navbar-item"
+                >
                   Sign Up
                 </a>
                 {% endif %} {% if current_user.is_authenticated %}
-                <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                <a
+                  href="{{ url_for('auth.logout') }}"
+                  class="a-menu is-size-6 navbar-item"
+                >
                   Logout
                 </a>
                 {% endif %}
               </div>
             </div>
+            <span class="navbar-burger burger" dara-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
           </div>
         </nav>
       </div>
