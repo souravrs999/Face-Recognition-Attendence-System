@@ -4,7 +4,7 @@
 <img  src="media/autolog-logo.png">
 
 <p style="color: #323232">
-A python flask based project to make attendence logging an easy task. Powered by OpenCV and python in the frontend and Bulma a cool opensource CSS framework based on Flexbox.
+A python flask based project to make attendence logging an easy task. Powered by OpenCV and python in the backend and Bulma a cool opensource CSS framework based on Flexbox in the frontend.
 </p>
 </div>
 
