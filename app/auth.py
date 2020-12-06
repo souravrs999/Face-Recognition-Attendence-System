@@ -36,19 +36,21 @@ def login_post():
     """ Grab the user with the reg_id from the user table """
     user = User.query.filter_by(reg_id=reg_id).first()
 
-    """ If the user if not present or the password is wrong
-    redirect the user to the login page """
-    if not user and not check_password_hash(user.password, password):
+    """ If the user is present and the password is not wrong
+    redirect the user to the profile page """
+    if user:
+        if check_password_hash(user.password, password):
 
-        """ Flash the error message """
-        flash(" Invalid Credentials !!!")
-        return redirect(url_for("auth.login"))
+            """ If the credentials are correct login the user """
+            login_user(user, remember=remember)
 
-    """ If the credentials are correct login the user """
-    login_user(user, remember=remember)
+            """ If everything checks out redirect to dashboard """
+            flash("Login Successful")
+            return redirect(url_for("main.profile"))
 
-    """ If everything checks out redirect to dashboard """
-    return redirect(url_for("main.profile"))
+    """ Flash the error message """
+    flash(" Invalid Credentials !!!")
+    return redirect(url_for("auth.login"))
 
 
 """ Signup route handles GET method """
@@ -95,14 +97,14 @@ def signup_post():
     the app launch will be the admin user """
 
     admin_user = User.query.filter_by(role=int(2)).first()
-    print(admin_user, file=sys.stderr)
+    # print(admin_user, file=sys.stderr)
 
-    ''' At first run since the database does not contain any
-    user with admin rights this will return None '''
+    """ At first run since the database does not contain any
+    user with admin rights this will return None """
 
     if admin_user == None:
 
-        ''' Add this user to the database with admin role '''
+        """ Add this user to the database with admin role """
         new_user = User(
             reg_id=reg_id,
             name=name,

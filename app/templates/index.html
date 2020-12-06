@@ -1,17 +1,417 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AutoLog</title>
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/style.css')}}"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+  </head>
+  <body>
+    <div id="wrapper" class="has-text-centered-mobile">
+      <section id="hero" class="hero is-medium">
+        <div class="hero-head">
+          <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <a href="#" class="navbar-item">
+                  <img
+                    src="{{url_for('static', filename='images/logo.png')}}"
+                    alt="Autolog-logo"
+                  />
+                </a>
+                <a href="https://bulma.io" class="navbar-item">
+                  <img
+                    src="{{url_for('static', filename='images/bulma-logo-pink.png')}}"
+                    alt=""
+                    width="150"
+                  />
+                </a>
+              </div>
+              <div class="navbar-menu is-not-active">
+                <div class="navbar-end">
+                  <a
+                    href="{{ url_for('main.index') }}"
+                    class="a-menu is-size-6 navbar-item"
+                  >
+                    Home
+                  </a>
+                  {% if current_user.is_authenticated %}
+                  <a
+                    href="{{ url_for('main.profile') }}"
+                    class="a-menu is-size-6 navbar-item"
+                  >
+                    Home
+                  </a>
+                  {% endif %} {% if not current_user.is_authenticated %}
+                  <a
+                    href="{{ url_for('auth.login') }}"
+                    class="a-menu is-size-6 navbar-item"
+                  >
+                    Login</a
+                  >
+                  <a
+                    href="{{ url_for('auth.signup') }}"
+                    class="a-menu is-size-6 navbar-item"
+                  >
+                    Sign Up
+                  </a>
+                  {% endif %} {% if current_user.is_authenticated %}
+                  <a
+                    href="{{ url_for('auth.logout') }}"
+                    class="a-menu is-size-6 navbar-item"
+                  >
+                    Logout
+                  </a>
+                  {% endif %}
+                </div>
+              </div>
+              <span class="navbar-burger burger" dara-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+          </nav>
+        </div>
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns">
+              <div class="column">
+                <h1 class="title is-size-1">ABOUT</h1>
+                <span class="abt-breaker"> </span>
+                <span>ABOUT</span>
+                <p class="has-text-centered-mobile has-text-grey">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Gravida quis blandit turpis cursus in hac habitasse platea
+                  dictumst. Quisque non tellus orci ac. Aenean et tortor at
+                  risus viverra adipiscing at in. Sed id semper risus in
+                  hendrerit gravida rutrum quisque non. Massa eget egestas purus
+                  viverra accumsan in nisl nisi. Convallis convallis tellus id
+                  interdum velit laoreet id. Quis auctor elit sed vulputate.
+                  Nunc congue nisi vitae suscipit tellus mauris a. Sed sed risus
+                  pretium quam vulputate dignissim suspendisse in est.
+                  <br /><br />
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Nibh tortor id aliquet lectus proin nibh nisl. Nunc aliquet
+                  bibendum enim facilisis gravida neque. Est ullamcorper eget
+                  nulla facilisi etiam dignissim diam quis enim. Condimentum
+                  lacinia quis vel eros donec ac odio tempor orci.
+                </p>
+                <button
+                  id="learnbtn"
+                  type="button"
+                  class="button is-size-6 is-rounded"
+                  style="margin-top: 15px"
+                >
+                  Learn more
+                </button>
+              </div>
+              <div class="column">
+                <img
+                  src="{{url_for('static', filename='images/undraw_progressive_app.svg')}}"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-{% block content %}
-<div class="container">
-<h1 class="title">
-    Face Recognition Attendence System.
-</h1>
-<h2 class="subtitle">
-  Easy and Effective Attendence Registering System.
-</h2>
-<p> This a prototype landing page for the Face Recognition Attendence System.</p>
-<h5 class="title"> Usage </h5>
+      <section id="users-feed" class="section">
+        <div class="container">
+          <h1 class="title is-size-1">STEPS</h1>
+          <span class="step-breaker"> </span>
+          <span class="step-ul">STEPS</span>
+          <div class="columns main">
+            <div class="column">
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="is-64x64">
+                      <img
+                        src="{{url_for('static', filename='images/male_avatar.svg')}}"
+                        alt=""
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <h1 class="title has-text-grey-dark">Step 1</h1>
+                      <p class="has-text-grey">
+                        <br />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Vel pharetra vel turpis nunc eget lorem
+                        dolor sed viverra. Amet porttitor eget dolor morbi non
+                        arcu.
+                        <br /><br />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Vel pharetra vel turpis nunc eget lorem
+                        dolor sed viverra. Amet porttitor eget dolor morbi non
+                        arcu.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <span class="vertical-breaker sp-1"></span>
+            <div class="column"></div>
+          </div>
+          <div class="columns">
+            <div class="column"></div>
+            <span class="vertical-breaker sp-2"></span>
+            <div class="column">
+              <div class="box">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="is-64x64">
+                      <img
+                        src="{{url_for('static', filename='images/female_avatar.svg')}}"
+                        alt=""
+                      />
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <h1 class="title has-text-grey-dark">Step 2</h1>
+                      <p>
+                        <br />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Vel pharetra vel turpis nunc eget lorem
+                        dolor sed viverra. Amet porttitor eget dolor morbi non
+                        arcu.
+                        <br /><br />
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Vel pharetra vel turpis nunc eget lorem
+                        dolor sed viverra. Amet porttitor eget dolor morbi non
+                        arcu.
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<p> The system differentiates users based on their roles. There are 3 primary roles Admin, Authenticated User and Normal User. Admin previlages are given to the user that signsup first during the first setup of the system. Then the admin can provide admin privilages to other users like the faculties. Every other user do not posses admin privilages but they can view their own profile.
-</p>
-</div>
-{% endblock %}
+      <section id="features" class="sectionf">
+        <div class="container">
+          <div class="columns reverse-row-order">
+            <div class="column">
+              <h1 class="title has-text-grey-dark">Step one</h1>
+              <p class="has-text-grey paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Molestie at elementum eu facilisis sed. Vulputate sapien nec
+                sagittis aliquam. Quis eleifend quam adipiscing vitae proin.
+                Enim nunc faucibus a pellentesque sit amet porttitor eget.
+                Tortor at risus viverra adipiscing at in. Id eu nisl nunc mi
+                ipsum. Eget velit aliquet sagittis id consectetur purus. Laoreet
+                non curabitur gravida arcu ac tortor dignissim. Nulla
+                pellentesque dignissim enim sit amet venenatis urna. Sem
+                fringilla ut morbi tincidunt augue interdum. Quam quisque id
+                diam vel quam elementum pulvinar. Tellus elementum sagittis
+                vitae et. Fames ac turpis egestas sed tempus urna. Id cursus
+                metus aliquam eleifend mi in nulla posuere sollicitudin.
+                Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum.
+                Varius morbi enim nunc faucibus a pellentesque sit. Id eu nisl
+                nunc mi ipsum. Augue eget arcu dictum varius duis at.
+              </p>
+            </div>
+            <div class="column">
+              <img
+                src="{{url_for('static', filename='images/code_review.svg')}}"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="container">
+          <div class="columns reverse-row-order">
+            <div class="column">
+              <img
+                src="{{url_for('static', filename='images/code_inspection.svg')}}"
+                alt=""
+              />
+            </div>
+            <div class="column">
+              <h1 class="title has-text-grey-dark">Step two</h1>
+              <p class="has-text-grey paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Molestie at elementum eu facilisis sed. Vulputate sapien nec
+                sagittis aliquam. Quis eleifend quam adipiscing vitae proin.
+                Enim nunc faucibus a pellentesque sit amet porttitor eget.
+                Tortor at risus viverra adipiscing at in. Id eu nisl nunc mi
+                ipsum. Eget velit aliquet sagittis id consectetur purus. Laoreet
+                non curabitur gravida arcu ac tortor dignissim. Nulla
+                pellentesque dignissim enim sit amet venenatis urna. Sem
+                fringilla ut morbi tincidunt augue interdum. Quam quisque id
+                diam vel quam elementum pulvinar. Tellus elementum sagittis
+                vitae et. Fames ac turpis egestas sed tempus urna. Id cursus
+                metus aliquam eleifend mi in nulla posuere sollicitudin.
+                Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum.
+                Varius morbi enim nunc faucibus a pellentesque sit. Id eu nisl
+                nunc mi ipsum. Augue eget arcu dictum varius duis at.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="columns reverse-row-order">
+            <div class="column">
+              <h1 class="title has-text-grey-dark">Step three</h1>
+              <p class="has-text-grey paragraph">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Molestie at elementum eu facilisis sed. Vulputate sapien nec
+                sagittis aliquam. Quis eleifend quam adipiscing vitae proin.
+                Enim nunc faucibus a pellentesque sit amet porttitor eget.
+                Tortor at risus viverra adipiscing at in. Id eu nisl nunc mi
+                ipsum. Eget velit aliquet sagittis id consectetur purus. Laoreet
+                non curabitur gravida arcu ac tortor dignissim. Nulla
+                pellentesque dignissim enim sit amet venenatis urna. Sem
+                fringilla ut morbi tincidunt augue interdum. Quam quisque id
+                diam vel quam elementum pulvinar. Tellus elementum sagittis
+                vitae et. Fames ac turpis egestas sed tempus urna. Id cursus
+                metus aliquam eleifend mi in nulla posuere sollicitudin.
+                Volutpat sed cras ornare arcu dui vivamus arcu felis bibendum.
+                Varius morbi enim nunc faucibus a pellentesque sit. Id eu nisl
+                nunc mi ipsum. Augue eget arcu dictum varius duis at.
+              </p>
+            </div>
+            <div class="column">
+              <img
+                src="{{url_for('static', filename='images/fitting_piece.svg')}}"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section">
+        <div class="container">
+          <h1 class="title is-size-1">GALLERY</h1>
+          <span class="gallery-breaker"> </span>
+          <span class="gallery-ul">GALLERY</span>
+          <div class="columns">
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img
+                      src="https://bulma.io/images/placeholders/1280x960.png"
+                      alt="Placeholder image"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="footer" class="section">
+        <div class="container has-text-centered">
+          <p class="has-text-black is-size-7">
+            If you
+            <i class="fa fa-heart is-size-5" aria-hidden="true"></i>
+            this project
+            <i class="fa fa-star is-size-5"></i>
+             me on
+            <i class="fa fa-github is-size-4"></i>
+          </p>
+          <a
+            href="https://github.com/souravrs999"
+            class="is-size-4 social-link"
+          >
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="is-size-4 social-link">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="is-size-4 social-link">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="is-size-4 social-link">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="is-size-4 social-link">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="is-size-4 social-link">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

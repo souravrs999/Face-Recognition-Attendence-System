@@ -5,7 +5,7 @@
     {% with messages = get_flashed_messages() %} {% if messages %}
     <div class="notification is-danger">{{ messages[0] }}</div>
     {% endif %} {% endwith %}
-    <form method="POST" action="/login">
+    <form name="form" method="POST" action="/login">
       <div class="field">
         <div class="control">
           <input

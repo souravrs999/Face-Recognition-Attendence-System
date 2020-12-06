@@ -1,7 +1,8 @@
 # env/usr/bin python
 
 """ Necessary Imports """
-from flask import Blueprint, render_template
+from .utils.utils import *
+from flask import Blueprint, render_template, Response
 from flask_login import login_required, current_user
 
 """ Initialize blueprint """
@@ -25,3 +26,7 @@ def profile():
 
     """ Returns profile webpage for the current user """
     return render_template("profile.html", name=current_user.name)
+
+@main.route('/video_feed')
+def video_feed():
+    return Response(data_capture_fun(1), mimetype='multipart/x-mixed-replace; boundary=frame')

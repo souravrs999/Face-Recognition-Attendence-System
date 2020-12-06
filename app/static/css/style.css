@@ -1,0 +1,286 @@
+body {
+  overflow-x: hidden;
+}
+.navbar-item img {
+  max-height: 80px;
+}
+
+.navbar .navbar-menu .navbar-item {
+  padding: 10px 20px;
+  margin: 28px;
+  border-radius: 25px;
+  transition: 0.5s;
+}
+
+.navbar .navbar-menu .navbar-item:hover {
+  color: #ffffff;
+  background-color: #f50057;
+}
+
+.hero-body .abt-breaker {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  background: #f50057;
+  width: 100px;
+  height: 2px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.hero-body span {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 2;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+}
+
+.hero-body .container::before {
+  content: "";
+  position: absolute;
+  left: 80%;
+  width: 100%;
+  height: 300%;
+  border-radius: 100%;
+  background-color: #f50057;
+  z-index: -1;
+}
+
+.hero-body .container p {
+  text-align: justify;
+}
+
+#features::before {
+  content: "";
+  position: absolute;
+  margin-top: 200px;
+  right: 90%;
+  width: 60%;
+  height: 100%;
+  border-radius: 100%;
+  background-color: #f50057;
+  z-index: -1;
+}
+#users-feed .columns {
+  margin-top: 50px;
+}
+
+#users-feed .step-breaker {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: #f50057;
+  width: 100px;
+  height: 2px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#users-feed .step-ul {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 2;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+}
+#users-feed .box p {
+  text-align: justify;
+}
+.hero-body .button {
+  background-color: #f50057;
+  border: transparent;
+  color: #ffffff;
+}
+
+.hero-body .button:hover {
+  background-color: #ffffff;
+  border: 1px solid #f50057;
+  color: #f50057;
+}
+
+.hero-body img:hover {
+  transform: scale(1.02);
+  transition: ease 1s;
+}
+
+#users-feed .vertical-breaker {
+  height: 350px;
+  width: 2px;
+  background-color: #f50057;
+}
+
+#users-feed .media img {
+  width: 64px;
+}
+#users-feed .box:hover {
+  transform: scale(1.01);
+  transition: ease 1s;
+}
+.column img {
+  width: 90%;
+  -webkit-filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+}
+#features img:hover {
+  transform: scale(1.02);
+  transition: ease 1s;
+}
+#features .column p {
+  text-align: justify;
+}
+#contact {
+  margin-top: 100px;
+}
+
+#gallery .column {
+  border-radius: 50%;
+}
+
+#gallery .card {
+  border-radius: 10px;
+}
+#gallery .card img {
+  border-radius: 10px;
+}
+
+#gallery .gallery-breaker {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: #f50057;
+  width: 100px;
+  height: 2px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#gallery .gallery-ul {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 2;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+}
+
+#gallery .columns {
+  margin-top: 100px;
+}
+
+#gallery .card-image {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+#gallery .card-image:hover {
+  transform: rotateY(180deg);
+  transition: ease 1s;
+}
+#users-feed .column .box {
+  -webkit-filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.3));
+}
+#contact .contact-breaker {
+  content: "";
+  position: absolute;
+  top: 60px;
+  left: 70px;
+  background: #f50057;
+  width: 100px;
+  height: 2px;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#contact .contact-ul {
+  font-size: 60px;
+  color: rgba(0, 0, 0, 0.07);
+  z-index: 2;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 100%;
+}
+#contact .container .columns {
+  margin-top: 100px;
+}
+
+.control.has-icons-left .input:focus ~ .icon,
+.control.has-icons-left .select:focus ~ .icon,
+.control.has-icons-right .input:focus ~ .icon,
+.control.has-icons-right .select:focus ~ .icon {
+  color: #f50057;
+}
+#contact .container .checkbox a {
+  color: #f50057;
+}
+#contact .container .button.is-link {
+  background-color: #f50057;
+}
+#contact .container .button.is-link:hover {
+  background: transparent;
+  color: #f50057;
+  border: 1px solid #f50057;
+}
+#contact .container .button.is-light {
+  background-color: #ffffff;
+  color: #f50057;
+  border: 1px solid #f50057;
+}
+#contact .container .button.is-light:hover {
+  background-color: #f50057;
+  color: #ffffff;;
+}
+#footer .container .fa {
+  padding: 20px;
+  color: #f50057;
+}
+#users-feed .sp-1::before {
+  content: "";
+  position: absolute;
+  margin-top: 300px;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-color: #f50057;
+  z-index: -1;
+}
+#gallery .container .gallery-breaker::before {
+  content: "";
+  position: absolute;
+  margin-top: 30px;
+  left: 200%;
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: #f50057;
+  z-index: 0;
+}
+#footer .container .fa:hover{
+  color: #323232;
+}
+
+#footer .container p {
+  margin-top: 50px;
+}
