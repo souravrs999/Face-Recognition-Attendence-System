@@ -10,13 +10,22 @@ A python flask based project to make attendence logging an easy task. Powered by
 
 <p align="center">
 <a href="#">
-<img src="https://img.shields.io/badge/PYTHON-3.8-f50057.svg?style=for-the-badge" alt="made with python">">
+<img src="https://img.shields.io/badge/PYTHON-3.8-f50057.svg?style=for-the-badge" alt="made with python">
 </a>
 <a href="#">
 <img src="https://img.shields.io/badge/FLASK-1.1.2-f50057.svg?style=for-the-badge">
 </a>
 <a href="#">
-<img src="https://img.shields.io/badge/BULMA-v0.9.12-f50057.svg?style=for-the-badge">
+<img src="https://img.shields.io/badge/BULMA-v0.9.1-f50057.svg?style=for-the-badge">
+</a>
+<a href="#">
+<img src="https://img.shields.io/badge/OpenCV-4.2-f50057.svg?style=for-the-badge">
+</a>
+<a href="#">
+<img src="https://img.shields.io/badge/DLIB-19.21-f50057.svg?style=for-the-badge">
+</a>
+<a href="#">
+<img src="https://img.shields.io/badge/SQLAlchemy-1.3.20-f50057.svg?style=for-the-badge">
 </a>
 </p>
 
