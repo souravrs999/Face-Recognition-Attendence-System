@@ -8,13 +8,13 @@ A python flask based project to make attendence logging an easy task. Powered by
 </div>
 
 <a>
-<img src="https://img.shields.io/static/v1?label=PYTHON&message=3.8&color=#f50057?style=for-the-badge">
+<img src="https://img.shields.io/static/v1?label=PYTHON&message=3.8&color=#f50057&?style=for-the-badge">
 </a>
 <a>
-<img src="https://img.shields.io/static/v1?label=FLASK&message=1.1.2&color=#f50057?style=for-the-badge">
+<img src="https://img.shields.io/static/v1?label=FLASK&message=1.1.2&color=#f50057&?style=for-the-badge">
 </a>
 <a>
-<img src="https://img.shields.io/static/v1?label=FLASK LOGIN&message=1.1.2&color=#f50057?style=for-the-badge">
+<img src="https://img.shields.io/static/v1?label=FLASK-LOGIN&message=1.1.2&color=#f50057&?style=for-the-badge">
 </a>
 
 #### !!! Not Finished Yet !!!
