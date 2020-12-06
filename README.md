@@ -3,7 +3,16 @@
 #### !!! Not Finished Yet !!!
 
 ##### Current status
+<p style="color: #323232"> Index </p>
 <img src="/media/index.png" style="float: center; margin-right: 10px;" width="1000"/>
+
+
+<p style="color: #323232"> Login </p>
+<img src="/media/login.png" style="float: center; margin-right: 10px;" width="1000"/>
+
+
+<p style="color: #323232"> Sign Up </p>
+<img src="/media/signup.png" style="float: center; margin-right: 10px;" width="1000"/>
 
 ##### Development
 <div align="center">
