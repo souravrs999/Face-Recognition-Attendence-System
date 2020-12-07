@@ -1,5 +1,3 @@
-### Face Recognition Attendence System
-
 <div align="center">
 <img  src="media/autolog-logo.png">
 
