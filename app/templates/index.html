@@ -62,7 +62,7 @@
                     href="{{ url_for('main.profile') }}"
                     class="a-menu is-size-6 navbar-item"
                   >
-                    Home
+                    Profile
                   </a>
                   {% endif %} {% if not current_user.is_authenticated %}
                   <a
@@ -121,14 +121,14 @@
                   nulla facilisi etiam dignissim diam quis enim. Condimentum
                   lacinia quis vel eros donec ac odio tempor orci.
                 </p>
-                <button
+                <a
                   id="learnbtn"
                   type="button"
                   class="button is-size-6 is-rounded"
                   style="margin-top: 15px"
                 >
                   Learn more
-                </button>
+              </a>
               </div>
               <div class="column">
                 <img

@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{url_for('static', filename='js/navbar.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
   <body>
     <section class="hero is-fullheight">
@@ -60,7 +61,7 @@
                   href="{{ url_for('main.profile') }}"
                   class="a-menu is-size-6 navbar-item"
                 >
-                  Home
+                  Profile
                 </a>
                 {% endif %} {% if not current_user.is_authenticated %}
                 <a

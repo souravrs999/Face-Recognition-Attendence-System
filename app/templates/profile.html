@@ -1,12 +1,33 @@
-{% extends "base.html" %}
-
-{% block content %}
-<h1 class="title">
-  Welcome, {{ name }}!!!
-</h1>
+{% extends "base.html" %} {% block content %}
+<h1 class="title">Welcome, {{ name }}!!!</h1>
 <div class="columns">
-    <div class="column">
-        <img src="{{url_for('main.video_feed')}}" width=100%>
+  <div class="column is-half">
+    <div class="buttons">
+      <a
+        id="modalbtn-open"
+        type="button"
+        class="button is-size-6 is-rounded"
+        style="margin-top: 15px"
+      >
+        CAPTURE DATA
+      </a>
     </div>
+    
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <!-- Any other Bulma elements you want -->
+      </div>
+      <button class="modal-close is-large" aria-label="close" id=modalbtn-close></button>
+    </div>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Nunc consequat
+      interdum varius sit. Congue nisi vitae suscipit tellus mauris a diam
+      maecenas. Tellus in hac habitasse platea dictumst vestibulum rhoncus est.
+      Augue interdum velit euismod in pellentesque massa placerat.
+    </p>
+  </div>
 </div>
 {% endblock %}

@@ -27,6 +27,16 @@ def profile():
     """ Returns profile webpage for the current user """
     return render_template("profile.html", name=current_user.name)
 
-@main.route('/video_feed')
+
+@main.route("/video_feed", methods=["POST"])
 def video_feed():
-    return Response(data_capture_fun(1), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+    """Get the name and reg_id of the student to
+    collect his data for training the face recognizer"""
+    student_name = request.form.get("student_name")
+    reg_id = request.form.get("reg_id")
+
+    return Response(
+        capture_data(name=student_name, reg_id=reg_id, src=1),
+        mimetype="multipart/x-mixed-replace; boundary=frame",
+    )
