@@ -1,8 +1,8 @@
 # env/usr/bin python
 
 """ Necessary Imports """
-from .utils.utils import *
-from flask import Blueprint, render_template, Response
+from .utils.utils import capture_data
+from flask import Blueprint, render_template, Response, request
 from flask_login import login_required, current_user
 
 """ Initialize blueprint """
@@ -28,15 +28,22 @@ def profile():
     return render_template("profile.html", name=current_user.name)
 
 
-@main.route("/video_feed", methods=["POST"])
+@main.route("/stream", methods=["GET", "POST"])
+def stream():
+
+    """ return the streaming template """
+    return render_template("video-feed.html")
+
+
+@main.route("/video_feed", methods=["GET", "POST"])
 def video_feed():
 
     """Get the name and reg_id of the student to
     collect his data for training the face recognizer"""
     student_name = request.form.get("student_name")
     reg_id = request.form.get("reg_id")
+    
+    ''' returns the encoded frame '''
+    frame_data = capture_data(name=student_name, reg_id=reg_id, src=1)
 
-    return Response(
-        capture_data(name=student_name, reg_id=reg_id, src=1),
-        mimetype="multipart/x-mixed-replace; boundary=frame",
-    )
+    return Response(frame_data, mimetype="multipart/x-mixed-replace; boundary=frame")

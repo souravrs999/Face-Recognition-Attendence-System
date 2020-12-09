@@ -3,6 +3,8 @@
 """ Necessary Imports """
 import os
 import cv2
+import sys
+from flask import redirect, url_for, render_template
 
 """ function to create data folder """
 
@@ -54,7 +56,7 @@ def capture_data(name, reg_id, src=1):
     """ Declare variables """
     face_detector = cv2.CascadeClassifier("model/haarcascade_frontalface_default.xml")
     img_count = 0
-    total_img_count = 200
+    total_img_count = 20
     assure_path_exists("data/")
 
     while True:
@@ -62,14 +64,28 @@ def capture_data(name, reg_id, src=1):
         """ Grab frame """
         ret, frame = cap.read()
 
+        """ If it returned true """
         if ret:
 
+            """ Convert the frame to grayscale easy to work on """
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-            faces = face_detector.detectMultiScale(gray, 1.3, 5)
+
+            """ Detect all the faces """
+            faces = face_detector.detectMultiScale(
+                gray, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30)
+            )
+
+            """ for each detected face """
             for (x, y, w, h) in faces:
+
+                """ draws the frame around their face """
                 draw_frame(frame, (x, y), (x + w, y + h), (255, 255, 255), 2, 10, 10)
+
+                """ increment the counter """
                 img_count += 1
                 count_text = f"count: {img_count}/{total_img_count}"
+
+                """ write the total no of images grabbed to the frame """
                 cv2.putText(
                     frame,
                     count_text,
@@ -79,14 +95,27 @@ def capture_data(name, reg_id, src=1):
                     (255, 255, 255),
                     2,
                 )
+
+                """ Save these faces frames to the data folder which
+                can be used to train the LBPH face recognizer """
                 cv2.imwrite(
-                    "data/" + str(name) + "-" + str(reg_id) + "-" + str(count) + ".jpg",
+                    "data/"
+                    + str(name)
+                    + "-"
+                    + str(reg_id)
+                    + "-"
+                    + str(img_count)
+                    + ".jpg",
                     gray[y : y + h, x : x + w],
                 )
 
-                if img_count > total_img_count:
-                    break
+            """ if the img count recieved our necessary limit break the loop """
+            if img_count > total_img_count:
+                break
 
+            """ encode the frames to bytes to display it """
             _, buffer = cv2.imencode(".jpg", frame)
             frame = buffer.tobytes()
-            yield (b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n")
+            yield b"--frame\r\n" b"Content-Type: image/jpeg\r\n\r\n" + frame + b"\r\n"
+
+    cap.release()

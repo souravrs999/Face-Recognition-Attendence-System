@@ -2,23 +2,33 @@
 <h1 class="title">Welcome, {{ name }}!!!</h1>
 <div class="columns">
   <div class="column is-half">
-    <div class="buttons">
-      <a
-        id="modalbtn-open"
-        type="button"
-        class="button is-size-6 is-rounded"
-        style="margin-top: 15px"
-      >
-        CAPTURE DATA
-      </a>
-    </div>
-    
-    <div class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <!-- Any other Bulma elements you want -->
-      </div>
-      <button class="modal-close is-large" aria-label="close" id=modalbtn-close></button>
+    <div class="box">
+      <form action="/video_feed" method="post">
+        <div class="field">
+          <p class="control has-icons-left has-icons-right">
+            <input class="input" type="text" name="student_name" placeholder="Student Name" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control has-icons-left">
+            <input class="input" type="text" name="reg_id" placeholder="Reg Id" />
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button class="button is-success" type="submit">Add student</button>
+          </p>
+        </div>
+      </form>
     </div>
 
     <p>
