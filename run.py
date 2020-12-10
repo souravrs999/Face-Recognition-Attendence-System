@@ -4,7 +4,6 @@
 from os import environ
 from sys import exit
 from decouple import config
-import thread
 
 from config import config_dict
 from app import create_app, db
@@ -29,11 +28,6 @@ except KeyError:
 app = create_app(app_config)
 
 
-def thread_app():
-
-    app.run()
-
-
 if __name__ == "__main__":
 
-    thread.start_new_thread(thread_app, ())
+    app.run(threaded=True)
