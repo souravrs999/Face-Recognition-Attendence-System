@@ -4,8 +4,13 @@
 import os
 import cv2
 import numpy as np
+import datetime
+
+""" declare some variables """
 
 data_dir = "data/"
+model_dir = "model/"
+model_name = "trainer.yml"
 face_detector = cv2.CascadeClassifier("model/haarcascade_frontalface_default.xml")
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 
@@ -180,3 +185,50 @@ def train_model():
 
     """ train the model """
     face_recognizer.train(face_samples, np.array(ids))
+
+    """ Write this model to the model directory """
+    face_recognizer.write(os.path.join(model_dir, model_name))
+
+
+""" Function to run live feed and update the database """
+
+
+def live_feed():
+
+    """ declare some variables """
+    att_date = datetime.today().strftime("%d-%m-%y")
+    ext_window = True
+    color = (255, 255, 255)
+
+    """ ensure that trained model exists """
+    if not os.path.exists(os.path.join(model_dir, model_name)):
+        os.mkdirs(os.path.join(model_dir, model_name))
+
+    """ Read our saved model """
+    face_recognizer.read("model/trainer.yml")
+
+    """ opencv read video frame """
+    cap = cv2.VideoCapture()
+
+    while True:
+
+        """ get the frame """
+        ret, frame = cap.read()
+
+        if ret:
+
+            """ convert to gray frame """
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+            """ Detect all the faces """
+            faces = face_detector.detectMultiScale(
+                gray, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30)
+            )
+
+            for (x, y, w, h) in faces:
+
+                """ draws the frame around their face """
+                draw_frame(frame, (x, y), (x + w, y + h), (255, 255, 255), 2, 10, 10)
+
+                """ predict the face using the trained model """
+                ids, conf = face_recognizer.predict(gray[y : y + h, x : x + w])
