@@ -3,7 +3,7 @@
 <div class="columns">
   <div class="column is-half">
     <div class="box">
-      <form action="/video_feed" method="post">
+      <form action="/data_capture" method="post" target="_newtab">
         <div class="field">
           <p class="control has-icons-left has-icons-right">
             <input class="input" type="text" name="student_name" placeholder="Student Name" />
@@ -39,5 +39,10 @@
       Augue interdum velit euismod in pellentesque massa placerat.
     </p>
   </div>
+<div class="column is-half">
+  <div class="box">
+      <a href="/train_face_model" class="button">Train</img>
+  </div>
+</div>
 </div>
 {% endblock %}
